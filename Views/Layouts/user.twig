@@ -1,0 +1,118 @@
+{% block header %}
+
+<html class="no-js" lang="en">
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <title>Blog</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../PHP_Rush_MVC/Webroot/css/base.css">
+    <link rel="stylesheet" href="../PHP_Rush_MVC/Webroot/css/vendor.css">
+    <link rel="stylesheet" href="../PHP_Rush_MVC/Webroot/css/main.css">
+    <link rel="stylesheet" href="../PHP_Rush_MVC/Webroot/css/makdownarticles.css">
+
+    <script src="../PHP_Rush_MVC/Webroot/js/modernizr.js"></script>
+    <script src="../PHP_Rush_MVC/Webroot/js/pace.min.js"></script>
+
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+
+</head>
+
+
+<body id="top">
+    <section class="s-pageheader s-pageheader--home">
+
+        <header class="header">
+            <div class="header__content row">
+
+                <div class="header__logo">
+                        My Blog
+                </div>
+                <a class="header__search-trigger" href="#0"></a>
+                <div class="header__search">
+                    <form role="search" method="get" class="header__search-form" action="#">
+                        <label>
+                            <span class="hide-content">Search for:</span>
+                            <input type="search" class="search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
+                        </label>
+                        <input type="submit" class="search-submit" value="Search">
+                    </form>
+                    <a href="#0" title="Close Search" class="header__overlay-close">Close</a>
+                </div>
+
+
+                <a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
+
+                <nav class="header__nav-wrap">
+
+                    <h2 class="header__nav-heading h6">Site Navigation</h2>
+
+                    <ul class="header__nav">
+                        <li class="current"><a href="index.html" title="">Home</a></li>
+                        <li class="has-children">
+                            <a href="#0" title="">Categories</a>
+                            <ul class="sub-menu">
+
+                            <li>
+                                {% for category in categories %}
+                                <a href="category.html">{{category.name}}</a>
+                                    {% endfor %}
+                            </li>
+                            </ul>
+
+                        </li>
+                        <li><a href="index.html" title="">Write</a></li>
+                    </ul>
+
+                    <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>
+
+                </nav>
+
+            </div>
+        </header>
+
+    </section>
+    {% endblock header %}
+    {% block content %}
+    {% endblock content %}
+    {% block footer %}
+    {% endblock footer %}
+
+    <footer class="s-footer">
+
+        <div class="s-footer__main">
+            <div class="row">
+
+                <div class="col-five md-full end s-footer__subscribe">
+                    <h4>Our Newsletter</h4>
+                    <p>Sit vel delectus amet officiis repudiandae est voluptatem. Tempora maxime provident nisi et fuga et enim exercitationem ipsam. Culpa consequatur occaecati.</p>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </footer>
+
+    <script src="../PHP_Rush_MVC/Webroot/js/jquery-3.2.1.min.js"></script>
+    <script src="../PHP_Rush_MVC/Webroot/js/plugins.js"></script>
+    <script src="../PHP_Rush_MVC/Webroot/js/main.js"></script>
+
+</body>
+
+</html>

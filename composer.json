@@ -1,0 +1,11 @@
+{
+    "name": "php_rush_mvc/twig",
+    "require": {
+        "twig/twig": "^2.4"
+    },
+    "autoload": {
+        "psr-4":{
+            "Foo\\":"."
+        }
+    }
+}

@@ -1,0 +1,68 @@
+{% extends 'Layouts/user.twig'%}
+{% block content %}
+    <section class="s-content">
+            <div id="write" class="row">
+                <div class="respond">
+
+                    <h3 class="h2">Write Article</h3>
+                    </br>
+                    <form name="WriteForm" id="WriteForm" method="post" action="">
+                        <fieldset>
+
+                            <div class="form-field">
+                                    <input name="cTitle" type="text" id="cTitle" style="font-size:25px" class="full-width" placeholder="Article Title" value="">
+                            </div>
+                            <div class="form-field">
+                                <select id=categoryselector>
+                                <option selected disabled> Category</option>
+                                {% for category in categories %}
+                                  <option value="Cat1">{{category.name}}</option>
+                                 {% endfor %}
+                                </select>
+                            </div>
+                            </br>
+                            <div class="message form-field">
+                                <textarea name="cArticlecontent" id="cArticlecontent" class="full-width" placeholder="Write article here"></textarea>
+                                <script>
+                                var simplemde = new SimpleMDE({ element: document.getElementById("cArticlecontent"),
+                                hideIcons: ["heading","side-by-side","fullscreen"] });
+                                </script>
+                            </div>
+                            </br>
+                            <h3>Choose Tags</h3>
+                                <div class="row bottom tags-wrap">
+                                    <div class="col-full tags">
+                                        <div class="tagcloud">
+                                            {% for tag in tags %}
+                                            <label for={{tag.id}} class="tagelement"><input id={{tag.id}} type="checkbox" name={{tag.id}} />
+                                            {{tag.name}}</label>
+                                            {% endfor %}
+                                        </div>
+
+
+
+                                        <script>
+                                        $( document ).ready(function() {
+                                            $("label").click(function() {
+                                                if($(this).children("input").prop('checked')){
+                                                    $(this).css("background-color","#0054a5");
+                                                    $(this).css("color","white");
+                                                }
+                                                else{
+                                                    $(this).css("background-color","#e2e2e2");
+                                                    $(this).css("color","#333333");
+                                                }
+                                            });
+                                        });
+                                    </script>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <button action= "/PHP_Rush_MVC/Articles/create/id=2" type="submit" class="submit  btn--large full-width">Publish</button>
+                        </fieldset>
+                    </form>
+                </div>
+        </div>
+    </section>
+{% endblock content %}

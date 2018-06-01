@@ -1,0 +1,82 @@
+{% extends 'Layouts/user.twig'%}
+{% block content %}
+    <section class="s-content">
+        <div class="row masonry-wrap">
+            <div class="masonry">
+                <div class="grid-sizer"></div>
+
+                {% for article in articles %}
+                <article class="masonry__brick entry format-standard" data-aos="fade-up">
+                    <div class="entry__thumb">
+                        <a href="single-standard.html" class="entry__thumb-link">
+                        </a>
+                    </div>
+                    <div class="entry__text">
+                        <div class="entry__header">
+
+                            <div class="entry__date">
+                                <a href="single-standard.html">{{article.creation_date}}</a>
+                            </div>
+                            <h1 class="entry__title"><a href="single-standard.html">{{article.title}}</a>
+                            </h1>
+
+                        </div>
+                        <div class="article_content" class="entry__excerpt">
+                                {{article.body | convert_encoding('UTF-8', 'ISO-8859-1')  | raw }}
+                        </div>
+                        <div class="entry__meta">
+                            <span class="entry__meta-links">
+                                {% for tag in article.tags %}
+                                <a>{{tag}}</a>
+                                {% endfor %}
+                            </span>
+                        </div>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+{% endblock content %}
+{% block footer %}
+</section>
+
+
+<section class="s-extra">
+
+    <div class="row bottom tags-wrap">
+        <div class="col-full tags">
+            <h3>Tags</h3>
+            <div class="tagcloud">
+                {% for tag in tags %}
+                <a class="label">{{tag.name}}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+
+$( document ).ready(function() {
+    $(".label").click(function() {
+            tagname = $(this).html();
+            console.log(tagname);
+            console.log($(this).css('background-color'));
+            if($(this).attr('clicked')){
+                $(".entry__text .entry__meta:contains("+tagname+")").parent(".entry__text").show();
+                $(this).css("background-color","#e2e2e2");
+                $(this).css("color","#333333");
+            }
+
+            else{
+                $(".entry__text .entry__meta:contains("+tagname+")").parent(".entry__text").hide();
+                $(this).css("background-color","#0054a5");
+                $(this).css("color","white");
+                $(this).attr("clicked","true");
+            }
+
+
+
+    });
+});
+</script>
+{% endblock footer %}
